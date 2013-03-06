@@ -1,5 +1,5 @@
 {include file="CRM/common/crmeditable.tpl"}
-
+{crmScript ext='eu.tttp.setting' file='js/jeditable.checkboxes.js'}
 <div id="help">
 <p>You are looking at Profile {$profile} for domain {$domain}</p>
 <p>Choose a profile .... (these are mostly for demo purposes). You can store your own profile in templates_c/../profiles to use your own settings
@@ -54,7 +54,7 @@
         {if is_array($settings->$domainid->$fieldname) ||
             is_object($settings->$domainid->$fieldname) }
           {if $field->html_type eq 'checkboxes' && $field->options}{strip}
-          <span class="crmf-{$fieldname}" data-type='checkboxes' data-options='{$field->options|@json_encode}' data-values={$settings->$domainid->$fieldname} data-action="create">
+          <span class="crmf-{$fieldname} crm-editable" data-type='checkboxes' data-options='{$field->options|@json_encode}' data-values={$settings->$domainid->$fieldname} data-action="create">
               {foreach from=$settings->$domainid->$fieldname key=optionid item = option}
                 <span class='crmf-option' data-option={$option}>{$field->options.$option}</span></br>
               {/foreach}
